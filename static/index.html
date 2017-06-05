@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link href="css/style.css" rel="stylesheet">-->
+</head>
+
+<body>
+  <input type="text" id="account">
+  <input type="text" id="password">
+  <button onclick="register()">注册</button>
+  <button onclick="login()">登陆</button>
+  <br>
+  <input type="text" id="username">
+  <button onclick="search()">查询</button>
+  <button onclick="modify()">修改</button>
+  <table>
+    <tr>
+      <td>序号</td>
+      <td>用户名</td>
+      <td>密码</td>
+      <td>手机号</td>
+    </tr>
+    <tbody id="list">
+
+    </tbody>
+  </table>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    function modify() {
+      $.ajax({
+        url: '/updateUser',
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+          age: $('#account').val(),
+          mobile: $('#password').val()
+        },
+        success: function(res) {
+          console.log(res);
+        },
+        error: function(e) {
+          console.log(e);
+        }
+      })
+    }
+    function login() {
+      $.ajax({
+        url: '/login',
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+          account: $('#account').val(),
+          password: $('#password').val()
+        },
+        success: function(res) {
+          console.log(res);
+        },
+        error: function(e) {
+          console.log(e);
+        }
+      })
+    }
+
+    function search() {
+      $.ajax({
+        url: '/userList?username=' + $('#username').val(),
+        dataType: 'JSON',
+        success: function(res) {
+          var htmlStr = '';
+          for (let i = 0; i < res.var.list.length; i++) {
+            var item = res.var.list[i]
+            htmlStr += '<tr><td>' + item.id + '</td><td>' + item.username + '</td><td>' + item.password + '</td><td>' + item.mobile + '</td></tr>'
+          }
+          $('#list').html(htmlStr);
+        }
+      })
+    }
+    search()
+
+    function register() {
+      $.ajax({
+        url: '/register',
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+          account: $('#account').val(),
+          password: $('#password').val()
+        },
+        success: function(res) {
+          console.log(res);
+          search();
+        },
+        error: function(e) {
+          console.log(e);
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>

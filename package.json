@@ -1,0 +1,28 @@
+{
+  "name": "koa-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "test",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0",
+    "crypto": "0.0.3",
+    "koa": "^2.2.0",
+    "koa-body": "^2.0.1",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "0.0.16",
+    "koa-router": "^7.2.0",
+    "koa-session": "^5.0.0",
+    "koa-session-minimal": "^3.0.4",
+    "koa-session2": "^2.2.4",
+    "koa-socket": "^4.4.0",
+    "koa-static": "^3.0.0",
+    "koa-swig": "^2.2.1",
+    "moment": "^2.18.1",
+    "mysql": "^2.13.0"
+  }
+}
