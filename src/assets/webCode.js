@@ -5,5 +5,6 @@ module.exports = {
   USERORPWDERROR: e => { return { code: 505, status: '用户名或密码错误', var: e } },
   USERNAMENULL: e => { return { code: 506, status: '用户名不能为空', var: e } },
   PASSWORDNULL: e => { return { code: 507, status: '密码不能为空', var: e } },
-  EXCEPTION: e => { return { code: -3, status: '异常', var: e } }
+  EXCEPTION: e => { return { code: -3, status: '异常', var: e } },
+  TIMEOUT: e => { return { code: -1, status: '登录超时,请重新登录' } }
 }

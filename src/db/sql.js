@@ -27,7 +27,7 @@ module.exports = (type, params) => {
       if (params.status) sql += format('status = ?,',[params.status])
       if (params.role) sql += format('role = ?,',[params.role])
       if (params.remark) sql += format('remark = ?,',[params.remark])
-      sql += format('updateTime = now() where id = ?', [params.userInfo.id])
+      sql += format('updateTime = now() where id = ?', [params.session.id])
       break;
     case 'activityList':
       sql = 'select * from activity where 1 = 1'

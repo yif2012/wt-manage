@@ -15,9 +15,7 @@ module.exports = async(ctx) => {
         userInfo.createTime = ctx.moment(userInfo.createTime).format('YYYY-MM-DD HH:mm:ss')
         userInfo.updateTime = userInfo.updateTime && ctx.moment(userInfo.updateTime).format('YYYY-MM-DD HH:mm:ss')
         delete userInfo.password
-        ctx.session = {
-          userInfo
-        }
+        ctx.session = userInfo
         ctx.body = ctx.webCode.SUCCESS(userInfo)
       } else {
         ctx.body = ctx.webCode.USERORPWDERROR()
