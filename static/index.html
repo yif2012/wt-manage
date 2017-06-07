@@ -80,7 +80,6 @@
         }
       })
     }
-    search()
 
     function register() {
       $.ajax({
@@ -89,11 +88,11 @@
         dataType: 'JSON',
         data: {
           account: $('#account').val(),
-          password: $('#password').val()
+          password: $('#password').val(),
+          userName: '高钰'
         },
         success: function(res) {
           console.log(res);
-          search();
         },
         error: function(e) {
           console.log(e);

@@ -8,6 +8,7 @@ const pinyin = require('pinyin')
 
 const router = require('./src/router')
 const webCode = require('./src/assets/webCode')
+const mongoose = require('./src/mongoDB/config/mongoose')
 
 const app = new Koa()
 const CONFIG = {key: 'SESSIONID',maxAge: 1000 * 60 * 60}
@@ -22,6 +23,7 @@ app.use((ctx, next) => {
 })
 app.use(koaBody({}))
 app.use(static(__dirname + '/static'))
+mongoose()
 router(app)
 
 app.listen(666, () => {
