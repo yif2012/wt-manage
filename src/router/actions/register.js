@@ -15,7 +15,7 @@ module.exports = async(ctx) => {
       account: account,
       password: password,
       userName: userName,
-      userNameRole: ctx.pinyin(userName, {style:ctx.pinyin.STYLE_FIRST_LETTER}).join('').toLocaleUpperCase()
+      userNameSort: ctx.pinyin(userName, {style:ctx.pinyin.STYLE_FIRST_LETTER}).join('').toLocaleUpperCase()
     })
     user.save();
     ctx.body = ctx.webCode.SUCCESS()

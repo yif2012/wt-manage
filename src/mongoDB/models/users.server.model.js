@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema({
   password: { require: true,type: String },
   mobile: { type:String, default: "" },
   userName: { type:String, default: "" },
-  userNameRole: { type:String, default: "" },
+  userNameSort: { type:String, default: "" },
   age: { type: Number, default: 18 },
   nativePlace: { type:String, default: "" },
   github: { type:String, default: "" },
@@ -12,6 +12,7 @@ const UserSchema = new mongoose.Schema({
   status: { type: Number, default: 1 },
   role: { type: Number, default: 2 },
   remark: { type:String, default: "" },
-  createTime: { type: Date, default: Date.now }
+  createTime: { type: Date, default: Date.now },
+  updateTime: { type: Date, default: "" }
 })
 module.exports = mongoose.model('User',UserSchema);
