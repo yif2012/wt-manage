@@ -1,3 +1,3 @@
 module.exports={
-  mongodb:'mongodb://127.0.0.1:27017/wt_manage'
+  mongodb:'mongodb://root:root@119.23.64.204:27017/wt_manage?authSource=admin'
 }
