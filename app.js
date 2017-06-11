@@ -19,10 +19,16 @@ app.use((ctx, next) => {
   ctx.pinyin = pinyin
   ctx.webCode = webCode
   ctx.moment = moment
+  ctx.dirname = __dirname
   return next()
 })
-app.use(koaBody({}))
-app.use(static(__dirname + '/static'))
+app.use(koaBody({
+  formidable:{uploadDir: './upload'},
+  multipart: true,
+  urlencoded: true,
+  formLimit:"5mb"
+}))
+app.use(static(__dirname + '/public/static'))
 mongoose()
 router(app)
 

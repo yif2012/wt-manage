@@ -17,6 +17,9 @@
   <input type="text" id="username">
   <button onclick="search()">查询</button>
   <button onclick="modify()">修改</button>
+  <input type="file" name="file" id="file">
+  <button onclick="upload()">上传</button>
+
   <table>
     <tr>
       <td>序号</td>
@@ -99,6 +102,23 @@
         },
         error: function(e) {
           console.log(e);
+        }
+      })
+    }
+    function upload() {
+      var formData = new FormData();
+      formData.append('file',document.getElementById('file').files[0])
+      $.ajax({
+        url: '/upload',
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        data:formData,
+        success:function(res) {
+          console.log(res)
+        },
+        error:function(e) {
+          console.log(e)
         }
       })
     }
