@@ -5,7 +5,6 @@ const static = require('koa-static')
 const session = require('koa-session2')
 const moment = require('moment')
 const pinyin = require('pinyin')
-
 const router = require('./src/router')
 const webCode = require('./src/assets/webCode')
 const mongoose = require('./src/mongoDB')
